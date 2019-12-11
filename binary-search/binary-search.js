@@ -1,8 +1,27 @@
-'use strict';
+"use strict";
 
 // Complete this algo
 const binarySearch = (array, target) => {
-	
+  let firstHalf = [];
+  let secondHalf = [];
+  if (array.length % 2 === 0) {
+    firstHalf = array.slice(0, array.length / 2);
+    secondHalf = array.slice(array.length / 2);
+  } else {
+    firstHalf = array.slice(0, (array.length + 1) / 2);
+    secondHalf = array.slice((array.length + 1) / 2);
+  }
+
+  //////
+  if (array.length > 1) {
+    return binarySearch(firstHalf, target) || binarySearch(secondHalf, target);
+  } else {
+    if (array[0] === target) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 };
 
 /*
@@ -14,4 +33,4 @@ const binarySearch = (array, target) => {
 
 */
 
-module.exports = binarySearch
+module.exports = binarySearch;
