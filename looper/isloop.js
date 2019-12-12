@@ -8,13 +8,14 @@ const isLoop = linkedlist => {
   };
   let hareCounter = 1;
   let turtleCounter = 1;
-  let hareVar = getNode(1);
+  let hareVar = getNode(1); //give the hareVar some initial not falsey value
   let turtleVar;
 
   while (hareVar.next) {
     hareCounter++;
 
     hareVar = getNode(hareCounter);
+    //for every 2 steps the hare goes, turtle gets one step
     if (hareCounter % 2 === 1) {
       turtleCounter++;
     }
