@@ -2,27 +2,29 @@
 
 //Complete this algo
 const isLoop = linkedlist => {
-  let counter = 1;
-  let memo = {};
-  let currentNode = linkedlist.getNthNode(counter);
-  // for (let key in memo) {
-  //   if (memo[key] === currentNode) {
-  //     return true;
-  //   } else {
-  //     memo[counter] = currentNode;
-  //     counter++;
-  //   }
-  // }
-  while (currentNode) {
-    for (let key in memo) {
-      if (memo[key] === currentNode) {
-        return true;
-      } else {
-        memo[counter] = currentNode;
-        counter++;
-      }
+  const getNode = counter => {
+    let hareNode = linkedlist.getNthNode(counter);
+    return hareNode;
+  };
+  let hareCounter = 1;
+  let turtleCounter = 1;
+  let hareVar = getNode(1);
+  let turtleVar;
+
+  while (hareVar.next) {
+    hareCounter++;
+
+    hareVar = getNode(hareCounter);
+    if (hareCounter % 2 === 1) {
+      turtleCounter++;
+    }
+    turtleVar = getNode(turtleCounter);
+
+    if (hareVar === turtleVar) {
+      return true;
     }
   }
+  return false;
 };
 
 /*
