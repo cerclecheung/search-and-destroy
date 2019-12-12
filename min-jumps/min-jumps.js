@@ -17,7 +17,6 @@ const minJumps = arr => {
       jumpCount++;
     }
   }
-  // let idxOfMax = arr.lastIndexOf(maxValueOfArr);
 };
 
 module.exports = minJumps;
