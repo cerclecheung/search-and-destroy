@@ -4,7 +4,6 @@
 const minJumps = arr => {
   let jumpCount = 1;
   const alteredArr = arr.map((ele, idx) => ele + idx);
-  console.log("altered: ", alteredArr);
   let currentIdx = 0;
   while (currentIdx < arr.length - 1) {
     let minIdx = currentIdx + 1;
@@ -16,7 +15,6 @@ const minJumps = arr => {
       let max = Math.max(...subArr);
       currentIdx = subArr.lastIndexOf(max) + minIdx;
       jumpCount++;
-      console.log("subArr: ", subArr, "max: ", max, "currentIdx: ", currentIdx);
     }
   }
   // let idxOfMax = arr.lastIndexOf(maxValueOfArr);
